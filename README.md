@@ -35,3 +35,15 @@
   python server.py
   ```
 - You should now be able to call the server by calling `localhost:9999`.
+
+### Sharing the Server on the Internet
+
+- Currently only you can access the server on your local machine. To enable anyone from anywhere to access it. We'll use ngrok.
+- Install **Ngrok** ([Download](https://ngrok.com/download))
+- In your terminal, run the following command and replace `SERVER_PORT` with your specified server port.
+
+  ```bash
+    ngrok tcp SERVER_PORT
+  ```
+
+- A URL should appear which you can share to anyone you want to access the server 🚀
