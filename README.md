@@ -6,6 +6,7 @@
 
 - Install **VSCode** ([Download](https://code.visualstudio.com/download]))
 - Install **Python** ([Download](https://www.python.org/downloads/))
+- Install **Python Extension for VSCode** ([Download](https://marketplace.visualstudio.com/items?itemName=ms-python.python))
 - Download the source code by clicking the green button with the code icon and then clicking 'Download ZIP'
   ![Download_Screenshot](https://github.com/MuhammadM1998/iti-mcu/assets/86230182/afa819db-51c4-4e18-9873-bb29afd9247a)
 - Unzip the file and open the folder in VSCode
