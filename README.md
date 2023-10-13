@@ -30,6 +30,7 @@
   ```bash
   pip install -r requirements.txt
   ```
+- Create a `.env` files that matches `.env.example` format & fill in the values.
 - Run the server
   ```bash
   python -m server
