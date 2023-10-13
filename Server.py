@@ -173,7 +173,6 @@ def handle_disconnect():
 #    socketio.run(app, host='0.0.0.0', port=55555)
 
 if __name__ == "__main__":
-    
     pywsgi.WSGIServer((SERVER_IP, SERVER_PORT), app, handler_class=WebSocketHandler).serve_forever()
 
 

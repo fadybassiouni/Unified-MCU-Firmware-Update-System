@@ -32,7 +32,7 @@
   ```
 - Run the server
   ```bash
-  python server.py
+  python -m server
   ```
 - You should now be able to call the server by calling `localhost:9999`.
 
