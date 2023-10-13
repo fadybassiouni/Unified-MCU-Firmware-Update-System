@@ -20,7 +20,7 @@
   ```
 - Run `pipreqs`. A `requirements.txt` file should be generated after it's done.
   ```bash
-  pipreqs
+  pipreqs --force
   ```
 - Install the dependencies generated in `requirements.txt`
   ```bash
