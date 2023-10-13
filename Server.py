@@ -4,7 +4,21 @@ from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 import socket
 import threading
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+SERVER_PORT = os.getenv('SERVER_PORT')
+USE_LOCAL= os.getenv('USE_LOCAL')
+
+
+SERVER_IP = "192.168.1.11"
+
+if(USE_LOCAL == "true"):
+    SERVER_IP = "192.168.1.11"
+else:
+    SERVER_IP = ""
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
@@ -17,6 +31,7 @@ app.debug = True
 hex_list = []
 hex_file = open('C:\\Users\\fady3\\Desktop\\AVR\\Bootloader_test.hex', 'r')
 hex_list = hex_file.read().splitlines()
+
 
 
 
@@ -159,7 +174,7 @@ def handle_disconnect():
 
 if __name__ == "__main__":
     
-    pywsgi.WSGIServer(("192.168.1.11", 55555), app, handler_class=WebSocketHandler).serve_forever()
+    pywsgi.WSGIServer((SERVER_IP, SERVER_PORT), app, handler_class=WebSocketHandler).serve_forever()
 
 
 
