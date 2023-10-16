@@ -13,10 +13,10 @@ SERVER_PORT = os.getenv('SERVER_PORT')
 USE_LOCAL= os.getenv('USE_LOCAL')
 
 
-SERVER_IP = "192.168.1.11"
+SERVER_IP = "192.168.1.20"
 
 if(USE_LOCAL == "true"):
-    SERVER_IP = "192.168.1.11"
+    SERVER_IP = "192.168.1.20"
 else:
     SERVER_IP = ""
 
@@ -88,30 +88,6 @@ def index():
 
     print("Home")
     return render_template('index.html')
-
-
-@app.route('/mcu')
-def mcu():
-    print("Connecting To MCU...")
-    # Accept a connection
-    global conn
-    global addr
-    global sock
-    try:
-        conn, addr = sock.accept()
-
-        print(f"Connected with {addr}")
-
-        global ESP_state
-        ESP_state = "connected"
-
-        socketio.emit("MCU Connected", "Connected")
-        print("Connected")
-        return "Connected"
-    except socket.timeout:
-        print("Timed Out")
-        return "Timeout"
-
     
 
 @socketio.on('message')
@@ -124,27 +100,7 @@ def handle_message(message):
 @socketio.on('Connect MCU')
 def handle_socket(Connect_MCU):
     print("Connecting To MCU...")
-    global ESP_state
-    global conn
 
-    if(ESP_state == "connected"):
-        try:
-            conn.send("Connect Request-EOT".encode())
-            response = conn.recv(1024).decode("ascii")
-            print(response)
-            if(response == "Accepted"):
-                socketio.emit("MCU Connected", "Connected")
-                print("Connected to MCU")
-                ESP_state = "ready"
-            else:
-                socketio.emit("MCU Connected", "Failed to Connect")
-                print("Failed to Connect to MCU")
-        except socket.timeout:
-            socketio.emit("MCU Connected", "Timeout")
-            print("Timeout")
-
-    else:
-        print("ESP Socket Not Connected")
 
 @socketio.on('Flash')
 def handle_socket(Flash):
@@ -173,7 +129,7 @@ def handle_disconnect():
 #    socketio.run(app, host='0.0.0.0', port=55555)
 
 if __name__ == "__main__":
-    pywsgi.WSGIServer((SERVER_IP, SERVER_PORT), app, handler_class=WebSocketHandler).serve_forever()
+    pywsgi.WSGIServer((SERVER_IP, int(SERVER_PORT)), app, handler_class=WebSocketHandler).serve_forever()
 
 
 
