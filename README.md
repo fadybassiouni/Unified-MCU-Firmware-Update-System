@@ -20,7 +20,7 @@
   ```
 - Run `pipreqs`. A `requirements.txt` file should be generated after it's done.
   ```bash
-  pipreqs
+  pipreqs --force
   ```
 - Install the dependencies generated in `requirements.txt`
   ```bash
@@ -30,6 +30,7 @@
   ```bash
   pip install -r requirements.txt
   ```
+- Create a `.env` files that matches `.env.example` format & fill in the values.
 - Run the server
   ```bash
   python -m server

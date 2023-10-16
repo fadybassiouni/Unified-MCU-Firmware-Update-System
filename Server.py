@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SERVER_PORT = os.getenv('SERVER_PORT')
+SERVER_PORT = int(os.getenv('SERVER_PORT'))
 USE_LOCAL= os.getenv('USE_LOCAL')
 
 
