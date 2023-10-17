@@ -93,9 +93,10 @@ def handle_message(message):
     socketio.emit("echo", message)
 
 
-@socketio.on('Connect MCU')
+@socketio.on('connect_car')
 def handle_socket(Connect_MCU):
     print("Connecting To MCU...")
+    socketio.emit("connect_car", 'true')  # A placeholder for now. Should check if ESP is connected or not first
 
 
 @socketio.on('Flash')
