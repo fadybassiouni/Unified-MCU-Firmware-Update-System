@@ -93,8 +93,7 @@ def index():
 @socketio.on('message')
 def handle_message(message):
     print(message)
-    
-    socketio.emit("Echo", message)
+    socketio.emit("echo", message)
 
 
 @socketio.on('Connect MCU')
@@ -120,10 +119,12 @@ def handle_socket(Flash):
 @socketio.on('connect')
 def handle_connect():
     print("Client connected ")
+    socketio.emit("message", 'Server connected successfully')
 
 @socketio.on('disconnect')
 def handle_disconnect():
     print('Client disconnected')
+    socketio.emit("message", 'Server disconnected successfully')
 
 #if __name__ == '__main__':
 #    socketio.run(app, host='0.0.0.0', port=55555)
