@@ -27,13 +27,10 @@ socketio = SocketIO(logger=True, engineio_logger=True, ping_timeout=86400, ping_
 socketio.init_app(app, cors_allowed_origins="*")
 app.debug = True
 
-#Open Hex File and Split it into lines
+# sOpen Hex File and Split it into lines
 hex_list = []
-hex_file = open('C:\\Users\\fady3\\Desktop\\AVR\\Bootloader_test.hex', 'r')
+hex_file = open('./resources/sample.hex', 'r')
 hex_list = hex_file.read().splitlines()
-
-
-
 
 # # Create a socket
 # sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
