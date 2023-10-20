@@ -17,8 +17,7 @@ if USE_LOCAL == "true":
 else:
     SERVER_IP = ""
 
-print(SERVER_IP)
-print(SERVER_PORT)
+print('Server started. Listening on', SERVER_IP, ':', SERVER_PORT)
 
 # Flask and SocketIO Setup
 app = Flask(__name__)
