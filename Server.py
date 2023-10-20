@@ -46,39 +46,53 @@ def handle_disconnect():
 @socketio.on("message")
 def handle_message(message):
     print(message)
-    socketio.emit("message", "Call Back Working With Update")
+    # Echo back message. Client checks if message is echoed back to let the user know what's happening
+    socketio.emit("message", {"state": "true", "message": message})
 
 
 # Connecting to car
 @socketio.on("connect_car")
 def handle_socket():
     print("Client requested connecting To Car...")
-    # A placeholder for now. Should check if Car ESP is connected or not first
-    socketio.emit("connect_car", "true")
+    socketio.emit("connect_car", "true") # Temporarily always return true for now
 
 # Connecting to ecu
 @socketio.on("connect_ecu")
 def handle_socket(ecu_number):
-    print("Client requested connecting to ECU...")
-    # A placeholder for now. Should check if ECU is connected or not first
-    socketio.emit("connect_ecu", "true")
+    print("Client requested connecting to ECU Number:", ecu_number)
+    socketio.emit("connect_ecu", "true") # Temporarily always return true for now
 
 # Receiving hex file
 @socketio.on("receive_hex")
 def handle_socket(hex_file):
     print("Client sent a hex file...")
-    # A placeholder for now. Should check if hex file is valid or not first
-    socketio.emit("connect_ecu", "true")
+    socketio.emit("connect_ecu", "true") # Temporarily always return true for now
 
 # Opening hex file
+# الجزء ده مفروض يبقي ف الايفنت اللي فوق
 hex_list = []
 hex_file = open("Bootloader_test.hex", "r")
-hex_list = hex_file.read().splitlines()
+
+
+# Verifying hex file
+@socketio.on("verify_hex")
+# هنا المفروض ما يبقاش في بارامتر لانك هتستخدم الفايل اللي اتبعت ف الايفنت اللي فوق
+def handle_socket():
+    print("Client requests verifying the hex file...")
+    # المفروض تتحقق من الملف صالح ولا لأ وترجع true او false
+    socketio.emit("verify_hex", "true")
 
 # Flashing hex file to MCU
 file_index = 0
-@socketio.on("Flash")
+@socketio.on("flash_hex")
 def handle_socket(Flash):
+    # الحتة بتاعة تقسيم الملف لسطور خليها هنا جوه الايفنت بتاع الفلاش عشان هي بتستخدم هناك مش اول ما تستقبل الملف
+    # انت بتقسم الفايل لسطور عشان تبعت للمايكرو كنترولر سطر ورا التاني ف كده معاك عدد السطور
+    # المطلوب انك بعد كل سطر تبعته للمايكرو كنترولر وتتأكد انه اتبعت بتبعت ايفنت للكلاينت انه السطر ده خلص
+    # عشان عندي هشوف عدد السطور ف الفايل بردو وكل ما انت تبعتلي رقم سطر جديد اتبعت هحدث ال
+    # progress bar
+    hex_list = hex_file.read().splitlines() 
+
     global file_index
     if (file_index == len(hex_list) - 1) and (Flash != "again"):
         socketio.emit("Flash", "Done-EOT")
