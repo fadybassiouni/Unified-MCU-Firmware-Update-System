@@ -71,7 +71,7 @@ def handle_socket(hex_file):
 # Opening hex file
 # الجزء ده مفروض يبقي ف الايفنت اللي فوق
 hex_list = []
-hex_file = open("Bootloader_test.hex", "r")
+hex_file = open("test-sample.hex", "r")
 
 
 # Verifying hex file
