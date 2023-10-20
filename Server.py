@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 import os
