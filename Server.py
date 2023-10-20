@@ -20,6 +20,9 @@ if(USE_LOCAL == "true"):
 else:
     SERVER_IP = ""
 
+print(SERVER_IP)
+print(SERVER_PORT)
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 socketio = SocketIO(app)
@@ -29,7 +32,7 @@ app.debug = True
 
 # sOpen Hex File and Split it into lines
 hex_list = []
-hex_file = open('./resources/sample.hex', 'r')
+hex_file = open('Bootloader_test.hex', 'r')
 hex_list = hex_file.read().splitlines()
 
 # # Create a socket
@@ -82,7 +85,6 @@ idx = 0
 
 @app.route('/')
 def index():
-
     print("Home")
     return render_template('index.html')
     
@@ -90,7 +92,8 @@ def index():
 @socketio.on('message')
 def handle_message(message):
     print(message)
-    socketio.emit("echo", message)
+    socketio.emit("message", "Call Back Working With Update")
+
 
 
 @socketio.on('connect_car')
