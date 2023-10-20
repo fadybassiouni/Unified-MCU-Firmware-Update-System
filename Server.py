@@ -52,10 +52,23 @@ def handle_message(message):
 # Connecting to car
 @socketio.on("connect_car")
 def handle_socket():
-    print("Connecting To MCU...")
-    # A placeholder for now. Should check if ESP is connected or not first
+    print("Client requested connecting To Car...")
+    # A placeholder for now. Should check if Car ESP is connected or not first
     socketio.emit("connect_car", "true")
 
+# Connecting to ecu
+@socketio.on("connect_ecu")
+def handle_socket(ecu_number):
+    print("Client requested connecting to ECU...")
+    # A placeholder for now. Should check if ECU is connected or not first
+    socketio.emit("connect_ecu", "true")
+
+# Receiving hex file
+@socketio.on("receive_hex")
+def handle_socket(hex_file):
+    print("Client sent a hex file...")
+    # A placeholder for now. Should check if hex file is valid or not first
+    socketio.emit("connect_ecu", "true")
 
 # Opening hex file
 hex_list = []
