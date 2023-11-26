@@ -6,6 +6,7 @@ import socket
 import threading
 import os
 from dotenv import load_dotenv
+
 from cryptography.fernet import Fernet
 
 # Generate a random encryption key
@@ -48,7 +49,7 @@ USE_LOCAL= os.getenv('USE_LOCAL')
 SERVER_IP = "192.168.1.20"
 
 if(USE_LOCAL == "true"):
-    SERVER_IP = "192.168.1.4" #Replace with Local IP
+    SERVER_IP = "172.20.10.2" #Replace with Local IP
 else:
     SERVER_IP = ""            #Will be open to an NGROK Server
 
@@ -60,6 +61,7 @@ app.config['SECRET_KEY'] = 'your-secret-key'
 socketio = SocketIO(logger=True, engineio_logger=True, ping_timeout=86400, ping_interval=86400)
 socketio.init_app(app, cors_allowed_origins="*")
 app.debug = True
+
 
 
 receivedHexFile = []
@@ -157,13 +159,12 @@ def handle_socket(W_receiveHex):
     idx = 0
 
     decrypted_string = decrypt_string(W_receiveHex)
-    #print("Decrypted string:", decrypted_string)
     receivedHexFile = decrypted_string.split(',')
     
     for i in range(len(receivedHexFile)):
         print(receivedHexFile[i])
 
-    receivedHexFile[len(receivedHexFile) - 2] = receivedHexFile[len(receivedHexFile) - 2].replace('1FF', '1FF#')
+    receivedHexFile[len(receivedHexFile) - 2] = receivedHexFile[len(receivedHexFile) - 2].replace('1FF', '1FF#')    
     socketio.emit("W_receiveHex", "OK", room = 'website')
 
 
@@ -231,3 +232,4 @@ def handle_heartbeat(heartbeat):
 
 if __name__ == "__main__":
     pywsgi.WSGIServer((SERVER_IP, int(SERVER_PORT)), app, handler_class=WebSocketHandler).serve_forever()
+
