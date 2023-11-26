@@ -49,7 +49,7 @@ USE_LOCAL= os.getenv('USE_LOCAL')
 SERVER_IP = "192.168.1.20"
 
 if(USE_LOCAL == "true"):
-    SERVER_IP = "172.20.10.2" #Replace with Local IP
+    SERVER_IP = "192.168.1.8" #Replace with Local IP
 else:
     SERVER_IP = ""            #Will be open to an NGROK Server
 
