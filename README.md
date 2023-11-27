@@ -23,7 +23,7 @@
 - Unzip the file and open the folder
 - Import the Source and header files in your preferred IDE (Eclipse, Keil, etc..) for Each MCU Project individually
 - For the Server Code use your preferred Text Editor (Sublime Text, VS Code, etc...)
-- For the website follow the upcoming steps
+- For the website create follow the upcoming steps
 
 ## Installing Dependencies
 
@@ -147,8 +147,8 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
     	CAN_FilterInit.FilterMaskIdHigh = Std_id_High(0x65D);
     	CAN_FilterInit.FilterMaskIdLow = 0x0000;
     	```
-    - Compile the Project and upload onto the Microcontroller using ST-Link Utility or Debug using Open OCD
-    - Now The APP ECU is ready to receive a Hex File to be Flashed using the CAN Bootloader (might need a hardreset in case that the EEPROM isn't preloaded with the Blink APP for the first time only)
+   - Compile the Project and upload onto the Microcontroller using ST-Link Utility or Debug using Open OCD
+   - Now The APP ECU is ready to receive a Hex File to be Flashed using the CAN Bootloader (might need a hardreset in case that the EEPROM isn't preloaded with the Blink APP for the first time only)
 
 ### Applications
   - Compile any Application from the repo using your preferred IDE and export a Hex File to be sent to the APP MCU
