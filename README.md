@@ -9,9 +9,17 @@
  - 1x Ultrasonic Sensor
  - 1x Buzzer
  - 1x DHT11 Sensor
- - 1x L283D Motor Driver
+ - 1x L293D Motor Driver
  - 3x AT24C256 EEPROM
  - 1x USB-TTL Serial Converter (Optional)
+
+## Hardware Circuit
+  - Follow The Uploaded Circuit Schematics for Each ECU individually
+  - For The Assembly of the 4 ECUs together:
+    - Connect The CAN-H and CAN-L All together on the same bus on a breadboard for example
+    - Connect The GPIO pins `A4`, `A5`, `A6` on the FOTA Gateway ECU to Pins `A7`, `A7`, `A4` Respectivley on App 1, 2, and 3 ECUs
+    - Make Sure there is a common ground connection for the 4 ECUs
+  - There are also PCB Designs and Gerber Files uploaded if you are willing to minimize wiring 
 
 ## Downloading the Project
 
@@ -23,7 +31,7 @@
 - Unzip the file and open the folder
 - Import the Source and header files in your preferred IDE (Eclipse, Keil, etc..) for Each MCU Project individually
 - For the Server Code use your preferred Text Editor (Sublime Text, VS Code, etc...)
-- For the website create follow the upcoming steps
+- For the website follow the upcoming steps
 
 ## Installing Dependencies
 
