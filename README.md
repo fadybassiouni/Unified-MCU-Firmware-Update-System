@@ -1,4 +1,19 @@
-# UMFUS
+# Unified MCU Firmware Update System (UMFUS)
+
+In today's interconnected world, maintaining up-to-date firmware across a vast network of microcontrollers (MCUs) is crucial for ensuring optimal performance and security. However, traditional firmware update methods often face challenges such as complexity, inefficiency, and security vulnerabilities. To address these limitations, the Unified MCU Firmware Update System (UMFUS) emerges as a groundbreaking solution, offering a unified and centralized approach to firmware updates.
+
+### The Architecture of UMFUS:
+
+- Centralized Management Console (Website): This web-based interface serves as the command center for managing firmware updates. Users can authenticate, select firmware files, and initiate update processes through this user-friendly interface.
+
+- FOTA Gateway ECU: This intelligent MCU acts as the central hub, orchestrating the entire firmware update process. It maintains a persistent connection with the server and continuously monitors for events. In case of disruptions such as Wi-Fi or server connection loss, it implements a well-defined finite state machine logic to automatically re-establish connectivity.
+
+- Application ECUs: These ECUs, connected to the FOTA Gateway ECU via CAN, are the target devices for firmware updates. Each application ECU is equipped with a CAN bootloader, enabling it to directly receive and execute the firmware updates initiated by the FOTA Gateway ECU. During testing, these ECUs were successfully flashed with three different applications, all thanks to the integrated CAN bootloader:
+
+  - Light Intensity-Responsive LED App: This app controls the intensity of an LED based on ambient light levels detected by an LDR sensor.
+  - Parking Sensor Simulation App: This app mimics a parking sensor system using an ultrasonic sensor, LED, and buzzer. The LED and buzzer change blinking and buzzing frequency according to the distance between the ultrasonic sensor and an object.
+  - Temperature Regulation App: This app regulates temperature using a DHT11 sensor and a fan. The fan speed adjusts dynamically based on the temperature readings from the DHT11 sensor.
+
 
 ## Hardware Requirments
  - 4x STM32F103c8T6 MCUs (Bluepill Board)
