@@ -23,7 +23,7 @@
 - Unzip the file and open the folder
 - Import the Source and header files in your preferred IDE (Eclipse, Keil, etc..) for Each MCU Project individually
 - For the Server Code use your preferred Text Editor (Sublime Text, VS Code, etc...)
-- For the website create follow the upcoming steps
+- For the website follow the upcoming steps
 
 ## Installing Dependencies
 
