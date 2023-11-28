@@ -16,7 +16,7 @@ In today's interconnected world, maintaining up-to-date firmware across a vast n
 
 
 ## Hardware Requirments
- - 4x STM32F103c8T6 MCUs (Bluepill Board)
+ - 4x STM32F103C8T6 MCUs (Bluepill Board)
  - 4x CAN Transceivers (preferably 3.3v ones)
  - ST-Link Debuggers for Uploading the code onto the MCUs
  - 1x ESP8266 WIFI Module (Preferably Flashed with the uploaded Firmware on this Repo)
