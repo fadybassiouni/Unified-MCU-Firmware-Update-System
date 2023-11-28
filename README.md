@@ -32,7 +32,7 @@ In today's interconnected world, maintaining up-to-date firmware across a vast n
   - Follow The Uploaded Circuit Schematics for Each ECU individually
   - For The Assembly of the 4 ECUs together:
     - Connect The CAN-H and CAN-L All together on the same bus on a breadboard for example
-    - Connect The GPIO pins `A4`, `A5`, `A6` on the FOTA Gateway ECU to Pins `A7`, `A7`, `A4` Respectivley on App 1, 2, and 3 ECUs
+    - Connect The GPIO pins `A4`, `A5`, `A6` on the FOTA Gateway ECU to Pins `A7`, `A7`, `A4` respectively on App 1, 2, and 3 ECUs
     - Make Sure there is a common ground connection for the 4 ECUs
   - There are also PCB Designs and Gerber Files uploaded if you are willing to minimize wiring 
 
