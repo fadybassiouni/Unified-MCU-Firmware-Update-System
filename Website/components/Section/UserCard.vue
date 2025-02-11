@@ -1,19 +1,19 @@
 <script setup>
-  const user = useSupabaseUser();
-  const supabase = useSupabaseClient();
+  // const user = useSupabaseUser();
+  // const supabase = useSupabaseClient();
   const logoutLoading = ref(false);
   const toast = useToast();
 
   async function logout() {
     logoutLoading.value = true;
 
-    const { error } = await supabase.auth.signOut();
+    // const { error } = await supabase.auth.signOut();
 
-    if (error) {
-      toast.add({ title: 'Error logging out! Please try again.' });
-      logoutLoading.value = false;
-      return;
-    }
+    // if (error) {
+    //   toast.add({ title: 'Error logging out! Please try again.' });
+    //   logoutLoading.value = false;
+    //   return;
+    // }
 
     toast.add({ title: 'Signed out! Comeback soon' });
     logoutLoading.value = false;
@@ -27,7 +27,7 @@
 
     <div>
       <p class="app-caption">Welcome Back!</p>
-      <h1 class="text-lg font-medium" v-if="user">{{ user.email }}</h1>
+      <!-- <h1 class="text-lg font-medium" v-if="user">{{ user.email }}</h1> -->
     </div>
 
     <UButton

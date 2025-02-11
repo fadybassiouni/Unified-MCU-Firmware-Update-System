@@ -1,11 +1,11 @@
 <script setup>
   // Redirecting to login page if user is not logged in
-  const user = useSupabaseUser();
-  const { skipLoginRedirect } = useRuntimeConfig().public;
-  onMounted(() => {
-    if (skipLoginRedirect) return; // Bypass auth checking if set from the env
-    if (!user.value) return navigateTo('/login');
-  });
+  // const user = useSupabaseUser();
+  // const { skipLoginRedirect } = useRuntimeConfig().public;
+  // onMounted(() => {
+  //   if (skipLoginRedirect) return; // Bypass auth checking if set from the env
+  //   if (!user.value) return navigateTo('/login');
+  // });
 
   // Toggling sections visibility based on connection status
   const { carConnection, connectedEcuId } = useStatus();

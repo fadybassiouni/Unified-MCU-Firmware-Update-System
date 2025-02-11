@@ -1,11 +1,11 @@
 <script setup>
-  // Redirecting to home page if user is logged in
-  const user = useSupabaseUser();
-  const { skipLoginRedirect } = useRuntimeConfig().public;
-  onMounted(() => {
-    if (skipLoginRedirect) return; // Bypass auth checking if set from the env
-    if (user.value) return navigateTo('/');
-  });
+  // // Redirecting to home page if user is logged in
+  // const user = useSupabaseUser();
+  // const { skipLoginRedirect } = useRuntimeConfig().public;
+  // onMounted(() => {
+  //   if (skipLoginRedirect) return; // Bypass auth checking if set from the env
+  //   if (user.value) return navigateTo('/');
+  // });
 
   // Validating the form
   const state = ref({ email: undefined, password: undefined });
@@ -26,23 +26,23 @@
 
   // Submitting the form
   const loginLoading = ref(false);
-  const supabase = useSupabaseClient();
+  // const supabase = useSupabaseClient();
   const toast = useToast();
   async function login() {
     loginLoading.value = true;
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: state.value.email,
-      password: state.value.password,
-    });
+    // const { error } = await supabase.auth.signInWithPassword({
+    //   email: state.value.email,
+    //   password: state.value.password,
+    // });
 
-    if (error) {
-      state.value.email = undefined;
-      state.value.password = undefined;
-      toast.add({ title: 'Invalid credentials! Please try again.' });
-      loginLoading.value = false;
-      return;
-    }
+    // if (error) {
+    //   state.value.email = undefined;
+    //   state.value.password = undefined;
+    //   toast.add({ title: 'Invalid credentials! Please try again.' });
+    //   loginLoading.value = false;
+    //   return;
+    // }
 
     toast.add({ title: 'Logged in successfully!' });
     loginLoading.value = false;
