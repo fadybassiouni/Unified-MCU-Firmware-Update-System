@@ -2,6 +2,7 @@
   "name": "iti-mcu",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@8.15.9",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
