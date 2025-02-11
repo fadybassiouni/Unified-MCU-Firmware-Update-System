@@ -1,13 +1,17 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxtjs/supabase', '@nuxtjs/google-fonts'],
+  modules: [
+    '@nuxt/ui',
+    '@nuxtjs/google-fonts',
+    // , '@nuxtjs/supabase'
+  ],
 
   ui: { icons: 'all' },
 
-  supabase: {
-    redirect: false, // This disables the default behavior of auto redirecting to the /login page.
-    url: process.env.SUPABASE_URL,
-    key: process.env.SUPABASE_ANON_KEY,
-  },
+  // supabase: {
+  //   redirect: false, // This disables the default behavior of auto redirecting to the /login page.
+  //   url: process.env.SUPABASE_URL,
+  //   key: process.env.SUPABASE_ANON_KEY,
+  // },
 
   googleFonts: {
     families: { 'IBM+Plex+Sans': { wght: [400, 500] } },
